@@ -83,27 +83,27 @@ document.addEventListener('DOMContentLoaded', () => {
         const optionOneId = cardsChosenId[0];
         const optionTwoId = cardsChosenId[1];
         if (cardsChosen[0] === cardsChosen[1]) {
-            alert('You found a match');
+            // alert('You found a match');
             cards[optionOneId].setAttribute('src', 'images/alice-butenko-zstWUZFj77w-unsplash.jpg')
             cards[optionTwoId].setAttribute('src', 'images/alice-butenko-zstWUZFj77w-unsplash.jpg')
-            cards[optionOneId].removeEventListener('click', flipcard)
-            cards[optionTwoId].removeEventListener('click', flipcard)
             cards[optionOneId].classList.add('disabled');
             cards[optionTwoId].classList.add('disabled');
             cardsWon.push(cardsChosen);
         } else {
+            cards[optionOneId].addEventListener('click', flipcard)
+            cards[optionTwoId].addEventListener('click', flipcard)
             cards[optionOneId].setAttribute('src', 'images/annie-spratt-xz485Eku8O4-unsplash.jpg')
             cards[optionTwoId].setAttribute('src', 'images/annie-spratt-xz485Eku8O4-unsplash.jpg')
             misses += 1;
             missesDisplay.textContent = misses;
-            alert('Sorry, try again')
+            // alert('Sorry, try again')
         } 
         cardsChosen = [];
         cardsChosenId = [];
         resultDisplay.textContent = cardsWon.length;
         if (cardsWon.length === cardArray.length/2) {
             button.textContent = 'play again?'
-            alert('Congrats! You found them all!');
+            // alert('Congrats! You found them all!');
         }
     }
     //flip card 
@@ -112,8 +112,9 @@ document.addEventListener('DOMContentLoaded', () => {
         cardsChosen.push(cardArray[Id].name);
         cardsChosenId.push(Id);
         this.setAttribute('src', cardArray[Id].img);
+        this.removeEventListener('click', flipcard)
         if (cardsChosen.length === 2) {
-            setTimeout(checkForMatch, 500);
+            setTimeout(checkForMatch, 1000);
         }
     }
     function playAgain() {

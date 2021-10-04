@@ -4,12 +4,28 @@
   margin: 0;
 }
 
+h3 {
+  font-size: 2.5rem;
+  margin-bottom: 0.25em;
+}
+
 img {
   object-fit: cover;
   object-position: center;
-  width: 300px;
-  height: 300px;
+  width: 20vh;
+  height: 20vh;
   cursor: pointer;
+  transition: opacity 0.2s ease-in, transform 0.2s ease-in, box-shadow 0.2s ease-in;
+}
+img:hover {
+  box-shadow: 0px 5px 5px -2px rgba(0, 0, 0, 0.3);
+  transform: translateY(-0.4vh);
+}
+img[src="images/annie-spratt-xz485Eku8O4-unsplash.jpg"] {
+  opacity: 0.8;
+}
+img[src="images/annie-spratt-xz485Eku8O4-unsplash.jpg"]:hover {
+  opacity: 1;
 }
 
 body {
@@ -23,8 +39,8 @@ body {
 .grid {
   display: flex;
   flex-flow: wrap;
-  width: 1213px;
-  gap: 4px;
+  width: 81.5vh;
+  gap: 0.5vh;
 }
 
 .disabled {
@@ -38,6 +54,11 @@ body {
   border-radius: 1em;
   color: white;
   text-transform: uppercase;
+  transition: background-color 0.2s ease-in;
+}
+#reset:hover {
+  background-color: #395f60;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=style.css.map */
