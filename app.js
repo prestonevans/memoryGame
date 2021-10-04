@@ -59,6 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let cardsChosenId = [];
     const cardsWon = [];
     const resultDisplay = document.querySelector('#result')
+    resultDisplay.textContent = 0;
+    const missesDisplay = document.querySelector('.misses');
+    let misses = 0;
+    missesDisplay.textContent = misses;
     
     function createBoard() {
         for(let i = 0; i < cardArray.length; i++) {
@@ -86,13 +90,15 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             cards[optionOneId].setAttribute('src', 'images/annie-spratt-xz485Eku8O4-unsplash.jpg')
             cards[optionTwoId].setAttribute('src', 'images/annie-spratt-xz485Eku8O4-unsplash.jpg')
+            misses += 1;
+            missesDisplay.textContent = misses;
             alert('Sorry, try again')
         } 
         cardsChosen = [];
         cardsChosenId = [];
         resultDisplay.textContent = cardsWon.length;
         if (cardsWon.length === cardArray.length/2) {
-            resultDisplay.textContent = ' Congrats! You found them all!'
+            document.querySelector('h3').innerHTML = ' Congrats! You found them all!'
         }
     }
     //flip card 
