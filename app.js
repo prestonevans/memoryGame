@@ -57,12 +57,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('.grid');
     let cardsChosen = [];
     let cardsChosenId = [];
-    const cardsWon = [];
+    let cardsWon = [];
     const resultDisplay = document.querySelector('#result')
     resultDisplay.textContent = 0;
     const missesDisplay = document.querySelector('.misses');
     let misses = 0;
     missesDisplay.textContent = misses;
+    const button = document.querySelector('#reset');
+    button.addEventListener('click', playAgain)
     
     function createBoard() {
         for(let i = 0; i < cardArray.length; i++) {
@@ -100,7 +102,8 @@ document.addEventListener('DOMContentLoaded', () => {
         cardsChosenId = [];
         resultDisplay.textContent = cardsWon.length;
         if (cardsWon.length === cardArray.length/2) {
-            document.querySelector('h3').innerHTML = ' Congrats! You found them all!'
+            button.textContent = 'play again?'
+            alert('Congrats! You found them all!');
         }
     }
     //flip card 
@@ -112,5 +115,17 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cardsChosen.length === 2) {
             setTimeout(checkForMatch, 500);
         }
+    }
+    function playAgain() {
+        cardArray.sort(() => 0.5 - Math.random())
+        cardsChosen = [];
+        cardsChosenId = [];
+        cardsWon = [];
+        resultDisplay.textContent = 0;
+        misses = 0;
+        missesDisplay.textContent = misses;
+        grid.innerHTML = '';
+        button.textContent = 'reset';
+        createBoard();
     }
 });
