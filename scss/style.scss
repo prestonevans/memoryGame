@@ -8,6 +8,7 @@ img {
 	object-position: center;
 	width: 300px;
 	height: 300px;
+	cursor: pointer;
 }
 body {
 	height: 100vh;
@@ -24,4 +25,7 @@ h3 {
 	flex-flow: wrap;
 	width: 1213px;
 	gap: 4px;
+}
+.disabled {
+	cursor: not-allowed;
 }

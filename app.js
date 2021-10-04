@@ -86,6 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
             cards[optionTwoId].setAttribute('src', 'images/alice-butenko-zstWUZFj77w-unsplash.jpg')
             cards[optionOneId].removeEventListener('click', flipcard)
             cards[optionTwoId].removeEventListener('click', flipcard)
+            cards[optionOneId].classList.add('disabled');
+            cards[optionTwoId].classList.add('disabled');
             cardsWon.push(cardsChosen);
         } else {
             cards[optionOneId].setAttribute('src', 'images/annie-spratt-xz485Eku8O4-unsplash.jpg')
