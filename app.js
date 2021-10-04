@@ -80,6 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('You found a match');
             cards[optionOneId].setAttribute('src', 'images/alice-butenko-zstWUZFj77w-unsplash.jpg')
             cards[optionTwoId].setAttribute('src', 'images/alice-butenko-zstWUZFj77w-unsplash.jpg')
+            cards[optionOneId].removeEventListener('click', flipcard)
+            cards[optionTwoId].removeEventListener('click', flipcard)
             cardsWon.push(cardsChosen);
         } else {
             cards[optionOneId].setAttribute('src', 'images/annie-spratt-xz485Eku8O4-unsplash.jpg')
